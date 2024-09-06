@@ -1,7 +1,9 @@
 import 'dart:convert';
 
+import 'package:rideshare_app/models/result_model.dart';
 
-class UserModel {
+
+class UserModel extends ResultModel{
   String firstName;
   String lastName;
   String username;

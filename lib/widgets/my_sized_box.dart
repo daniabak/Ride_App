@@ -38,3 +38,16 @@ class sizedBox50 extends StatelessWidget {
     );
   }
 }
+
+class sizedBox20 extends StatelessWidget {
+  const sizedBox20({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: MediaQuery.of(context).size.height / 20,
+    );
+  }
+}
