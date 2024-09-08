@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rideshare_app/screens/map.dart';
-import 'package:rideshare_app/screens/onbarding.dart';
+import 'package:rideshare_app/screens/onbarding_screen.dart';
 
 void main() {
   runApp(const MyApp());
