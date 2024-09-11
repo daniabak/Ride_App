@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:rideshare_app/bloc/login/login_bloc.dart';
+import 'package:rideshare_app/core/go_router.dart/go_router.dart';
 import 'package:rideshare_app/core/utils/color_manager.dart';
 import 'package:rideshare_app/core/utils/style_maneger.dart';
 import 'package:rideshare_app/core/utils/style_of_textField.dart';
@@ -95,6 +97,7 @@ class _SignInPageState extends State<SignInPage> {
                         backgroundColor: ColorManager.successColor,
                       ));
                       print(state.message);
+                      GoRouter.of(context).push(Routes.homePath);
                     } else if (state is LoginOffline) {
                       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                         content: Text("no connection to internet"),

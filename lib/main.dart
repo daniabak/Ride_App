@@ -3,6 +3,7 @@ import 'package:rideshare_app/core/go_router.dart/go_router.dart';
 import 'package:rideshare_app/core/store/getit.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   initial();
   runApp(const MyApp());
 }
