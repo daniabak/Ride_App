@@ -35,102 +35,106 @@ class _SignInPageState extends State<SignInPage> {
               internetConnectionChecker:
                   InternetConnectionChecker.createInstance()),
           child: Builder(builder: (context) {
-            return Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Column(children: [
-                sizedBox40(),
-                const backAppBar(),
-                const sizedBox30(),
-                Text(
-                  "Login with your phone number",
-                  style: StyleManager.boldTextStyle(),
-                ),
-                const sizedBox30(),
-                const sizedBox30(),
-                Padding(
-                  padding: const EdgeInsets.all(10),
-                  child: IntlPhoneField(
-                    controller: phone,
-                    decoration: const InputDecoration(
-                      labelText: 'Phone Number',
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(12)),
-                        borderSide: BorderSide(color: ColorManager.errorColor),
-                      ),
-                    ),
-                    initialCountryCode: 'SY',
-                    onChanged: (phone) {
-                      print(phone.completeNumber);
-                    },
+            return SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(children: [
+                  sizedBox40(),
+                  const backAppBar(),
+                  const sizedBox30(),
+                  Text(
+                    "Login with your phone number",
+                    style: StyleManager.boldTextStyle(),
                   ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(9),
-                  child: TextFormField(
-                      autovalidateMode: AutovalidateMode.onUserInteraction,
-                      obscureText: showPassword,
-                      controller: passwordd,
-                      validator: (text) {
-                        if (text!.isEmpty) {
-                          return "required";
-                        }
-                        if (text.length < 6 && text.length > 0) {
-                          return "passowrd is short";
-                        }
-                        return " ";
+                  const sizedBox30(),
+                  const sizedBox30(),
+                  Padding(
+                    padding: const EdgeInsets.all(10),
+                    child: IntlPhoneField(
+                      controller: phone,
+                      decoration: const InputDecoration(
+                        labelText: 'Phone Number',
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(12)),
+                          borderSide:
+                              BorderSide(color: ColorManager.errorColor),
+                        ),
+                      ),
+                      initialCountryCode: 'SY',
+                      onChanged: (phone) {
+                        print(phone.completeNumber);
                       },
-                      cursorColor: ColorManager.primaryColor,
-                      decoration: decorationOfPasswordTextField(() {
-                        setState(() {
-                          showPassword = !showPassword;
-                        });
-                      }, showPassword, "password", ColorManager.primaryColor,
-                          ColorManager.errorColor)),
-                ),
-                const sizedBox20(),
-                const sizedBox30(),
-                BlocListener<LoginBloc, LoginState>(
-                  listener: (context, state) {
-                    if (state is LoginLoaded) {
-                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                        content: Text(state.message),
-                        backgroundColor: ColorManager.successColor,
-                      ));
-                      print(state.message);
-                      GoRouter.of(context).push(Routes.homePath);
-                    } else if (state is LoginOffline) {
-                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                        content: Text("no connection to internet"),
-                        backgroundColor: ColorManager.errorColor,
-                      ));
-                    } else if (state is LoginError) {
-                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                        content: Text(state.message),
-                        backgroundColor: ColorManager.errorColor,
-                      ));
-                    } else if (state is LoginLoading) {
-                      Center(
-                        child: CircularProgressIndicator(),
-                      );
-                    }
-                  },
-                  child: MyButton(
-                      title: "Login",
-                      fontsize: 18,
-                      onpress: () {
-                        print(LoginModel(
-                                password: passwordd.text, phone: phone.text)
-                            .toMap());
-                        context.read<LoginBloc>().add(SendInfoLogin(
-                            userLogin: LoginModel(
-                                password: passwordd.text, phone: phone.text)));
-                      },
-                      colors: ColorManager.primaryColor,
-                      width: MediaQuery.of(context).size.width / 1.1,
-                      height: MediaQuery.of(context).size.height / 14,
-                      radius: 8),
-                ),
-              ]),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(9),
+                    child: TextFormField(
+                        autovalidateMode: AutovalidateMode.onUserInteraction,
+                        obscureText: showPassword,
+                        controller: passwordd,
+                        validator: (text) {
+                          if (text!.isEmpty) {
+                            return "required";
+                          }
+                          if (text.length < 6 && text.length > 0) {
+                            return "passowrd is short";
+                          }
+                          return " ";
+                        },
+                        cursorColor: ColorManager.primaryColor,
+                        decoration: decorationOfPasswordTextField(() {
+                          setState(() {
+                            showPassword = !showPassword;
+                          });
+                        }, showPassword, "password", ColorManager.primaryColor,
+                            ColorManager.errorColor)),
+                  ),
+                  const sizedBox20(),
+                  const sizedBox30(),
+                  BlocListener<LoginBloc, LoginState>(
+                    listener: (context, state) {
+                      if (state is LoginLoaded) {
+                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                          content: Text(state.message),
+                          backgroundColor: ColorManager.successColor,
+                        ));
+                        print(state.message);
+                        GoRouter.of(context).push(Routes.homePath);
+                      } else if (state is LoginOffline) {
+                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                          content: Text("no connection to internet"),
+                          backgroundColor: ColorManager.errorColor,
+                        ));
+                      } else if (state is LoginError) {
+                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                          content: Text(state.message),
+                          backgroundColor: ColorManager.errorColor,
+                        ));
+                      } else if (state is LoginLoading) {
+                        Center(
+                          child: CircularProgressIndicator(),
+                        );
+                      }
+                    },
+                    child: MyButton(
+                        title: "Login",
+                        fontsize: 18,
+                        onpress: () {
+                          print(LoginModel(
+                                  password: passwordd.text, phone: phone.text)
+                              .toMap());
+                          context.read<LoginBloc>().add(SendInfoLogin(
+                              userLogin: LoginModel(
+                                  password: passwordd.text,
+                                  phone: phone.text)));
+                        },
+                        colors: ColorManager.primaryColor,
+                        width: MediaQuery.of(context).size.width / 1.1,
+                        height: MediaQuery.of(context).size.height / 14,
+                        radius: 8),
+                  ),
+                ]),
+              ),
             );
           }),
         ));

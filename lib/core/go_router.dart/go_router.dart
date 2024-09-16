@@ -10,9 +10,9 @@ class Routes {
   static String signUpPath = "/SignUp";
   static String completeSignUpPath = "/SetPasswordSignUp";
   static String signInPath = "/SignInPage";
-  static String homePath = "/";
+  static String homePath = "/HomePageView";
   static String welcomePath = "/WelcomeScreen";
-  static String onBoardingPath = "/OnBoardingScreen";
+  static String onBoardingPath = "/";
   GoRouter router = GoRouter(routes: [
     GoRoute(
       path: onBoardingPath,
