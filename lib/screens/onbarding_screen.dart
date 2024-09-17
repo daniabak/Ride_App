@@ -16,7 +16,6 @@ class OnBoardingScreen extends StatefulWidget  {
 class _OnBoardingScreenState extends State<OnBoardingScreen> with SingleTickerProviderStateMixin
 {
   late AnimationController _animationController;
-  late Animation<Offset> _slideAnimation;
 
   late PageController _controller;
   double _progressValue = 0.3;
@@ -35,10 +34,6 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> with SingleTickerPr
       vsync: this,
       duration: const Duration(milliseconds: 500),
     );
-    _slideAnimation = Tween<Offset>(
-      begin: const Offset(1.0, 0.0),
-      end: Offset.zero,
-    ).animate(_animationController);
     super.initState();
   }
   @override
@@ -49,7 +44,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> with SingleTickerPr
   }
   void _handleNextButtonPressed() {
     if (_progressValue > 0.9) {
-      Navigator.push(context, MaterialPageRoute(builder: (context)=>WelcomeScreen()));
+      Navigator.push(context, MaterialPageRoute(builder: (context)=>const WelcomeScreen()));
 
     } else {
 
@@ -67,7 +62,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> with SingleTickerPr
           TextButton(
             onPressed: () {
               Navigator.push(context, PageTransition(
-              child:WelcomeScreen(),
+              child:const WelcomeScreen(),
               type:PageTransitionType.fade
               )
               );
@@ -99,7 +94,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> with SingleTickerPr
                   child: CircularProgressIndicator(
                     value: _progressValue,
                     backgroundColor: Colors.grey[300],
-                    valueColor: AlwaysStoppedAnimation<Color>(ColorManager.primaryColor),
+                    valueColor: const AlwaysStoppedAnimation<Color>(ColorManager.primaryColor),
                   ),
                 ),
 
@@ -108,13 +103,13 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> with SingleTickerPr
                     borderRadius: BorderRadius.circular(50),
                   ),
                   onPressed:(){
-                    _controller.nextPage(duration: Duration(microseconds: 300), curve:  Curves.ease);
+                    _controller.nextPage(duration: const Duration(microseconds: 300), curve:  Curves.ease);
                     _handleNextButtonPressed();
                   }
                   ,
                   backgroundColor: ColorManager.primaryColor,
                   child: _progressValue>0.7
-                    ? Text("Go")
+                    ? const Text("Go")
                    : const Icon(
                     Icons.arrow_right_alt_outlined,
                     color: ColorManager.blackColor,
@@ -124,7 +119,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> with SingleTickerPr
               ],
             ),
           ),
-          Spacer()
+          const Spacer()
         ],
       ),
 

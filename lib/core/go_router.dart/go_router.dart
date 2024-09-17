@@ -13,6 +13,9 @@ class Routes {
   static String homePath = "/HomePageView";
   static String welcomePath = "/WelcomeScreen";
   static String onBoardingPath = "/";
+  static String homepagePath = "/HomePageView";
+  static String bicyclePagePath = "/BicyclePage";
+
   GoRouter router = GoRouter(routes: [
     GoRoute(
       path: onBoardingPath,
@@ -24,7 +27,7 @@ class Routes {
     ),
     GoRoute(
       path: homePath,
-      builder: (context, state) => HomePageView(),
+      builder: (context, state) => const HomePageView(),
     ),
     GoRoute(
       path: signUpPath,
@@ -36,7 +39,11 @@ class Routes {
     ),
     GoRoute(
       path: signInPath,
-      builder: (context, state) => SignInPage(),
+      builder: (context, state) => const SignInPage(),
+    ),
+    GoRoute(
+      path: homepagePath,
+      builder: (context, state) => const HomePageView(),
     ),
   ]);
 }

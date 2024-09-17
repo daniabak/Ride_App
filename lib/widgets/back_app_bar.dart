@@ -22,7 +22,7 @@ class backAppBar extends StatelessWidget {
             Image.asset("${AssetsManager.imagesPath}/angle-left.png"),
             HeaderText(
               text: "back",
-              fontSize: 16,
+              fontSize: 14,
               fontWeight: FontWeight.w400,
             ),
           ],

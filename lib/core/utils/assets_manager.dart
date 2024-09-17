@@ -10,11 +10,11 @@ class AssetsManager {
   static const bookYourCar = '$imagesPath/bookyourCar.png';
   static const CarImage1 = '$imagesPath/car 1.png';
   static const CarImage2 = '$imagesPath/car 2.png';
-  static const  car = '$imagesPath/Car.png';
-  static const cycle = '$imagesPath/Cycle.png';
-  static const bike = '$imagesPath/Bike.png';
-  static const taxi = '$imagesPath/Taxi.png';
-
+  static const road = '$imagesPath/road.png';
+  static const e_bike = '$imagesPath/e_bike.png';
+  static const mountine = '$imagesPath/mountine.png';
+  static const hybrid = '$imagesPath/hybrid.png';
+    static const car = '$imagesPath/road.png';
 
 
   /// Icons

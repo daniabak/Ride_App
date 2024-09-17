@@ -6,6 +6,8 @@ import 'package:rideshare_app/widgets/dd.dart';
 import 'package:rideshare_app/widgets/myAnimationBottomBar.dart';
 
 class HomePageView extends StatefulWidget {
+  const HomePageView({super.key});
+
   @override
   State<HomePageView> createState() => _HomePageViewState();
 }
@@ -28,23 +30,24 @@ class _HomePageViewState extends State<HomePageView> {
   @override
   Widget build(BuildContext context) {
     final List<Widget> bottomBarPages = [
-      Page2(),
-      Page2(),
+      const Page2(),
+      const Page2(),
       MapPage(
         controller: _controller,
       ),
-      Page3(),
-      Page3(),
+      const Page3(),
+      const Page3(),
     ];
     return Scaffold(
-        backgroundColor: ColorManager.whiteColor,
-        body: PageView(
-          controller: _pageController,
-          children: List.generate(
-              bottomBarPages.length, (index) => bottomBarPages[index]),
-        ),
-        extendBody: true,
-        bottomNavigationBar: myAnimationBottomBar(
-            controller: _controller, pageController: _pageController));
+      backgroundColor: ColorManager.whiteColor,
+      body: PageView(
+        controller: _pageController,
+        children: List.generate(
+            bottomBarPages.length, (index) => bottomBarPages[index]),
+      ),
+      extendBody: true,
+      bottomNavigationBar: myAnimationBottomBar(
+          controller: _controller, pageController: _pageController),
+    );
   }
 }

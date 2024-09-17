@@ -12,16 +12,16 @@ import 'package:rideshare_app/core/utils/color_manager.dart';
 class MapPage extends StatefulWidget {
   final NotchBottomBarController? controller;
   const MapPage({
-    Key? key,
+    super.key,
     this.controller,
-  }) : super(key: key);
+  });
 
   @override
   State<MapPage> createState() => _MapPageState();
 }
 
 class _MapPageState extends State<MapPage> {
-  LatLng _latLng = LatLng(
+  final LatLng _latLng = const LatLng(
     33.513104,
     36.304363,
   );
