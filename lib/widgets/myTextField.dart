@@ -5,6 +5,7 @@ import 'package:rideshare_app/core/utils/color_manager.dart';
 class myTextFieldName extends StatelessWidget {
   final String? validatorText;
   final String? hintName;
+  final Widget? prefixIcon;
   final bool readOnly;
   final String? label;
   final TextStyle? hintStyle;
@@ -13,6 +14,7 @@ class myTextFieldName extends StatelessWidget {
   myTextFieldName({
     super.key,
     this.fillColor,
+    this.prefixIcon,
     this.hintStyle,
     required this.circular,
     this.validatorText,
@@ -27,10 +29,12 @@ class myTextFieldName extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      
       readOnly: readOnly,
       keyboardType: TextInputType.name,
       cursorColor: ColorManager.primaryColor,
       decoration: InputDecoration(
+        prefixIcon: prefixIcon,
         errorStyle: const TextStyle(color: ColorManager.primaryColor),
         errorBorder: OutlineInputBorder(
             borderSide: const BorderSide(color: ColorManager.primaryColor),

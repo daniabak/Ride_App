@@ -10,12 +10,9 @@ class Routes {
   static String signUpPath = "/SignUp";
   static String completeSignUpPath = "/SetPasswordSignUp";
   static String signInPath = "/SignInPage";
-  static String homePath = "/HomePageView";
+  static String homePath = "/";
   static String welcomePath = "/WelcomeScreen";
-  static String onBoardingPath = "/";
-  static String homepagePath = "/HomePageView";
-  static String bicyclePagePath = "/BicyclePage";
-
+  static String onBoardingPath = "/OnBoardingScreen";
   GoRouter router = GoRouter(routes: [
     GoRoute(
       path: onBoardingPath,
@@ -42,7 +39,7 @@ class Routes {
       builder: (context, state) => const SignInPage(),
     ),
     GoRoute(
-      path: homepagePath,
+      path: homePath,
       builder: (context, state) => const HomePageView(),
     ),
   ]);
