@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:bloc/bloc.dart';
+import 'package:dio/dio.dart';
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
@@ -19,7 +20,7 @@ class HubsBloc extends Bloc<HubsEvent, HubsState> {
     on<getAllHubsEvent>((event, emit) async {
       emit(LoadingGetHubs());
       if (await internetConnectionChecker.hasConnection) {
-        // try {
+        try {
         ResultModel response =
             await HubServiceImplement().getAllHubs(event.lang, event.lat);
         print("from bloc hubs");
@@ -30,9 +31,9 @@ class HubsBloc extends Bloc<HubsEvent, HubsState> {
         } else if (response is ErrorsResult) {
           emit(FailedGetHubs());
         }
-        // } on DioException catch (e) {
-        //   emit(FailedGetHubs());
-        // }
+        } on DioException catch (e) {
+          emit(FailedGetHubs());
+        }
       } else {
         emit(OfflineGetHubs());
       }

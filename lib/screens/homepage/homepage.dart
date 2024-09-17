@@ -1,7 +1,7 @@
 import 'package:animated_notch_bottom_bar/animated_notch_bottom_bar/animated_notch_bottom_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:rideshare_app/core/utils/color_manager.dart';
-import 'package:rideshare_app/screens/map.dart';
+import 'package:rideshare_app/screens/homepage/map/view/map.dart';
 import 'package:rideshare_app/widgets/dd.dart';
 import 'package:rideshare_app/widgets/myAnimationBottomBar.dart';
 
