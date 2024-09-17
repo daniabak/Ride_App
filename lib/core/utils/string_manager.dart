@@ -5,4 +5,5 @@ class StringManager {
 class EndPointTextManager {
   static String signup = "auth/register";
   static String login = "auth/authenticate";
+  // static String getAllHubUrl = "hubs?longtitude=&latitude=33.5357054";
 }
