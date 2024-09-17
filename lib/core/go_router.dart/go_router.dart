@@ -1,4 +1,5 @@
 import 'package:go_router/go_router.dart';
+import 'package:rideshare_app/screens/homepage/homepage.dart';
 import 'package:rideshare_app/screens/onbarding_screen.dart';
 import 'package:rideshare_app/screens/auth_screens/signUp.dart/combleteSignUp.dart';
 import 'package:rideshare_app/screens/auth_screens/signUp.dart/signUp.dart';
@@ -9,9 +10,12 @@ class Routes {
   static String signUpPath = "/SignUp";
   static String completeSignUpPath = "/SetPasswordSignUp";
   static String signInPath = "/SignInPage";
-  static String homePath = "";
+  static String homePath = "/HomePageView";
   static String welcomePath = "/WelcomeScreen";
   static String onBoardingPath = "/";
+  static String homepagePath = "/HomePageView";
+  static String bicyclePagePath = "/BicyclePage";
+
   GoRouter router = GoRouter(routes: [
     GoRoute(
       path: onBoardingPath,
@@ -20,6 +24,10 @@ class Routes {
     GoRoute(
       path: welcomePath,
       builder: (context, state) => const WelcomeScreen(),
+    ),
+    GoRoute(
+      path: homePath,
+      builder: (context, state) => const HomePageView(),
     ),
     GoRoute(
       path: signUpPath,
@@ -31,7 +39,11 @@ class Routes {
     ),
     GoRoute(
       path: signInPath,
-      builder: (context, state) => SignInPage(),
+      builder: (context, state) => const SignInPage(),
+    ),
+    GoRoute(
+      path: homepagePath,
+      builder: (context, state) => const HomePageView(),
     ),
   ]);
 }

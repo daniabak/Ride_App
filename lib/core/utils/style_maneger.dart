@@ -7,7 +7,7 @@ import 'color_manager.dart';
 class StyleManager {
   static TextStyle boldTextStyle(
       {Color color = ColorManager.blackColor,
-      double size = 24,
+      double size = 20,
       FontWeight fontWeight = FontWeight.bold,
       }) {
     return TextStyle(

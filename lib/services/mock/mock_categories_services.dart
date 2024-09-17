@@ -19,17 +19,17 @@ class MockCategoriesServices extends Mock implements CategoriesServices{
   },
     {
     "name": "Bike",
-    "image":AssetsManager.bike,
+    "image":AssetsManager.road,
     "id": 2
     },
     {
     "name": "Cycle",
-    "image": AssetsManager.cycle,
+    "image": AssetsManager.car,
     "id": 3
     },
       {
         "name": "Taxi",
-        "image": AssetsManager.taxi,
+        "image": AssetsManager.car,
         "id": 3
       }
     ];

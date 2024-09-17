@@ -12,22 +12,20 @@ part 'items_bloc.freezed.dart';
 
 class ItemsBloc extends Bloc<ItemsEvent, ItemsState> {
   ItemsBloc() : super(const ItemsState.loading()) {
-    on<ItemsEvent>((event, emit)async{
-        event.when(getItems: (id) async{
-          emit(ItemsState.loading());
-         try{
-           var data= await MockItemsService().getItems(id);
-           if(data is ListOf<ItemModel>){
-             emit(ItemsState.loaded(data.resutl));
-           }
-
-           else{
-             emit(ItemsState.error());
-           }
-         }catch (e){
-           throw e.toString();
-         }
-        });
+    on<ItemsEvent>((event, emit) async {
+      event.when(getItems: (id) async {
+        emit(ItemsState.loading());
+        try {
+          var data = await MockItemsService().getItems(id);
+          if (data is ListOf<ItemModel>) {
+            emit(ItemsState.loaded(data.resutl));
+          } else {
+            emit(ItemsState.error());
+          }
+        } catch (e) {
+          throw e.toString();
+        }
+      });
     });
   }
 }

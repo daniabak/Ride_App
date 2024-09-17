@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:rideshare_app/core/utils/assets_manager.dart';
 import 'package:rideshare_app/core/utils/color_manager.dart';
 import 'package:rideshare_app/core/utils/string_manager.dart';
-import 'package:rideshare_app/screens/categories_screen.dart';
 import 'package:rideshare_app/widgets/Titles.dart';
 import 'package:rideshare_app/widgets/myButton.dart';
 import 'package:rideshare_app/widgets/my_sized_box.dart';
@@ -191,10 +190,10 @@ class _SetPasswordSignUpState extends State<SetPasswordSignUp> {
                     title: "Register",
                     onpress: () {
                     
-                      Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => CategoriesScreen()));
+                      // Navigator.pushReplacement(
+                      //     context,
+                      //     MaterialPageRoute(
+                      //         builder: (context) => CategoriesScreen()));
                     },
                     colors: ColorManager.primaryColor,
                     width: MediaQuery.of(context).size.width / 1.1,
@@ -208,3 +207,4 @@ class _SetPasswordSignUpState extends State<SetPasswordSignUp> {
     );
   }
 }
+

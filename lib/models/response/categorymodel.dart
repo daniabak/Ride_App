@@ -5,6 +5,8 @@ import 'dart:convert';
 import '../result_model.dart';
 
 
+
+
 class CategoryModel extends ResultModel {
   final int id;
   final String name;

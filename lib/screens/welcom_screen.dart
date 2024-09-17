@@ -2,13 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:go_router/go_router.dart';
 import 'package:rideshare_app/core/go_router.dart/go_router.dart';
-
 import 'package:rideshare_app/core/utils/assets_manager.dart';
 import 'package:rideshare_app/core/utils/color_manager.dart';
 import 'package:rideshare_app/core/utils/style_maneger.dart';
-import 'package:rideshare_app/screens/categories_screen.dart';
+import 'package:rideshare_app/screens/auth_screens/login/sign_in.dart';
 import 'package:rideshare_app/screens/auth_screens/signUp.dart/signUp.dart';
-
 import '../widgets/button_without_fill.dart';
 
 class WelcomeScreen extends StatelessWidget {
@@ -42,7 +40,13 @@ class WelcomeScreen extends StatelessWidget {
               width: MediaQuery.sizeOf(context).width,
               child: ElevatedButton(
                 onPressed: () {
-                  GoRouter.of(context).push(Routes.signUpPath);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => SignUp(),
+                    ),
+                  );
+                  //GoRouter.of(context).push(Routes.signUpPath);
                 },
                 style: ElevatedButton.styleFrom(
                     shape: ContinuousRectangleBorder(
@@ -60,13 +64,25 @@ class WelcomeScreen extends StatelessWidget {
             ),
           ),
           Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: SizedBox(
+              width: MediaQuery.sizeOf(context).width,
               child: ButtonWithoutFill(
                 buttonName: 'Log In',
                 onPressed: () {
-                  GoRouter.of(context).push(Routes.signInPath);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const SignInPage(),
+                    ),
+                  );
+                  //  GoRouter.of(context).push(Routes.signInPath);
                 },
-              )),
+                width: double.infinity,
+                height: 40,
+              ),
+            ),
+          ),
           const Spacer(),
         ],
       ),
