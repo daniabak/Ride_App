@@ -104,7 +104,7 @@ class _MapPageState extends State<MapPage> {
                                     state.listOfHubs[index].latitude.toDouble(),
                                     state.listOfHubs[index].longitude
                                         .toDouble()),
-                                child: SizedBox(
+                                child: const SizedBox(
                                   width: 100,
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
@@ -114,7 +114,7 @@ class _MapPageState extends State<MapPage> {
                                       //   maxLines: 5,
                                       //   softWrap: true,
                                       // ),
-                                      const Icon(
+                                      Icon(
                                         Icons.location_on,
                                         size: 22,
                                         color: Colors.green,

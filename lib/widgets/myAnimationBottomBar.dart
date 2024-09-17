@@ -66,7 +66,7 @@ class myAnimationBottomBar extends StatelessWidget {
               Icons.location_pin,
               color: Colors.white,
             ),
-            itemLabel: 'Home',
+            itemLabel: 'Location',
           ),
           BottomBarItem(
             inActiveItem: Icon(

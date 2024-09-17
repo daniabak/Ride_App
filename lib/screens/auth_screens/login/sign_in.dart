@@ -10,6 +10,7 @@ import 'package:rideshare_app/core/utils/style_maneger.dart';
 import 'package:rideshare_app/core/utils/style_of_textField.dart';
 import 'package:rideshare_app/models/login.dart';
 import 'package:rideshare_app/screens/auth_screens/signUp.dart/combleteSignUp.dart';
+import 'package:rideshare_app/screens/homepage/homepage.dart';
 
 import 'package:rideshare_app/widgets/back_app_bar.dart';
 import 'package:rideshare_app/widgets/myButton.dart';
@@ -127,6 +128,12 @@ class _SignInPageState extends State<SignInPage> {
                               userLogin: LoginModel(
                                   password: passwordd.text,
                                   phone: phone.text)));
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const HomePageView(),
+                            ),
+                          );
                         },
                         colors: ColorManager.primaryColor,
                         width: MediaQuery.of(context).size.width / 1.1,

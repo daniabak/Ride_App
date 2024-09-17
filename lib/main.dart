@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:rideshare_app/core/injection_container.dart' as di;
 import 'package:rideshare_app/core/store/getit.dart';
 import 'package:rideshare_app/features/bicycle/presentation/pages/category_page.dart';
+import 'package:rideshare_app/screens/onbarding_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
     // );
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: CategoriesScreen(),
+      home: OnBoardingScreen(),
     );
   }
 }

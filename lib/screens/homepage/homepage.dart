@@ -30,11 +30,11 @@ class _HomePageViewState extends State<HomePageView> {
   @override
   Widget build(BuildContext context) {
     final List<Widget> bottomBarPages = [
-      const Page2(),
-      const Page2(),
       MapPage(
         controller: _controller,
       ),
+      const Page2(),
+      const Page2(),
       const Page3(),
       const Page3(),
     ];
